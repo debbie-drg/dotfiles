@@ -86,8 +86,8 @@ let-env NU_PLUGIN_DIRS = [
 # let-env PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
 #source ~/.oh-my-posh.nu
 
-source ~/.config/nushell/conda.nu
-source ~/.config/nushell/starship.nu
+source ~/.conda.nu
+source ~/.starship.nu
 #source ($nu.default-config-dir + '/conda.nu')
 
 alias cat = bat
