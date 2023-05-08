@@ -1,0 +1,7 @@
+theme = "onedark"
+
+[editor]
+mouse = true
+auto-completion = true
+auto-format = true
+auto-save = true
