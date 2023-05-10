@@ -31,7 +31,7 @@ $fill\
 $cmd_duration\
 [](fg:#33658A bg:#86BBD8)\
 $shell\
-[ ](fg:#33658A)\
+[](fg:#33658A)\
 $line_break\
 $character\
 """
