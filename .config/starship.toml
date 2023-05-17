@@ -33,7 +33,6 @@ $cmd_duration\
 $shell\
 [](fg:#33658A)\
 $line_break\
-$character\
 """
 
 # Disable the blank line at the start of the prompt
