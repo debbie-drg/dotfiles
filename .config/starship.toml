@@ -37,7 +37,7 @@ $line_break\
 
 # Disable the blank line at the start of the prompt
 add_newline = false
-command_timeout = 1000
+command_timeout = 10000
 
 [fill]
 symbol = ' '
