@@ -93,6 +93,7 @@ source ~/.starship.nu
 alias cat = bat
 alias grep = rg
 alias 'conda activate' = activate
+alias 'conda deactivate' = deactivate
 
 let-env PATH = ($env.PATH | split row (char esep) | prepend '~/.local/bin')
 let-env PATH = ($env.PATH | split row (char esep) | prepend '~/miniconda3/bin')
