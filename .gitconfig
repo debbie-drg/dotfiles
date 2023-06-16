@@ -3,5 +3,6 @@
 	email = david.mendez@research.fchampalimaud.org
 [core]
 	editor = hx
+	autocrlf = input
 [init]
 	defaultBranch = main
