@@ -56,3 +56,4 @@ unset __conda_setup
             __main
             unset -f __main
 
+source ~/.profile

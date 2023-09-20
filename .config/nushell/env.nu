@@ -13,7 +13,7 @@ def create_left_prompt [] {
     }
 
     let dir = ([
-        ($env.PWD | str substring 0..($home | str length) | str replace -s $home "~"),
+        ($env.PWD | str substring 0..($home | str length) | str replace -a $home "~"),
         ($env.PWD | str substring ($home | str length)..)
     ] | str join)
 
@@ -99,5 +99,8 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/miniconda3/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/miniconda3/condabin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.cargo/bin')
+$env.PATH = ($env.PATH | split row (char esep) | prepend '~/.opam/default/bin')
+$env.PATH = ($env.PATH | split row (char esep) | prepend '~/.elan/bin')
+
 
 # activate base
