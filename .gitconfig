@@ -3,3 +3,6 @@
 	autocrlf = input
 [init]
 	defaultBranch = main
+[user]
+	email = david.mendez@research.fchampalimaud.org
+	name = David Mendez
