@@ -86,9 +86,11 @@ $env.NU_PLUGIN_DIRS = [
 # $env.PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
 #source ~/.oh-my-posh.nu
 
-source ~/.conda.nu
-source ~/.starship.nu
-#source ($nu.default-config-dir + '/conda.nu')
+source '~/.config/nushell_scripts/starship.nu'
+source '~/.config/nushell_scripts/conda.nu'
+source '~/.config/nushell_scripts/git.nu'
+source '~/.config/nushell_scripts/zellij.nu'
+source '~/.config/nushell_scripts/cargo.nu'
 
 alias cat = bat
 alias grep = rg
