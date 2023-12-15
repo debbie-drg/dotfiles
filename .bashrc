@@ -43,4 +43,4 @@ unset __conda_setup
 
 source <(~/.cargo/bin/starship init bash --print-full-init)
 
-#source ~/.profile
+source ~/.profile
