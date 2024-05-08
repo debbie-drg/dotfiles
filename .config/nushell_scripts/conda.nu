@@ -2,7 +2,13 @@ def --env load-conda-info-env [] {
     if (not (has-env CONDA_INFO)) {
         export-env {
             $env.CONDA_INFO = (
-                if not (which mamba | is-empty) {
+                if not (which micromamba | is-empty) {
+                    mut info = micromamba env list --json | from json
+                    let extra_info = micromamba info --json | from json
+                    $info.envs_dirs = $extra_info."envs directories"
+                    $info.root_prefix = $extra_info."base environment"
+                    $info
+                } else if not (which mamba | is-empty) {
                     (mamba info --envs --json --no-banner | from json)
                 } else if not (which conda | is-empty) {
                     (conda info --envs --json | from json)
@@ -21,7 +27,7 @@ export def --env activate [
     load-conda-info-env
     let conda_info = $env.CONDA_INFO
     if ($conda_info == null) {
-        print "Error: No Conda or Mamba install could be found in the environment. Please install either and add them to the environment. See: https://www.nushell.sh/book/environment.html for more info"
+        print "Error: No Conda, Mamba or Micromamba install could be found in the environment. Please install either and add them to the environment. See: https://www.nushell.sh/book/environment.html for more info"
         return
     }
 
@@ -43,12 +49,9 @@ export def --env activate [
         conda-create-path-unix $env_dir
     }
 
-    let virtual_prompt = $''
-
     let new_env = ({
         CONDA_DEFAULT_ENV: $env_name
         CONDA_PREFIX: $env_dir
-        CONDA_PROMPT_MODIFIER: $virtual_prompt
         CONDA_SHLVL: "1"
         CONDA_OLD_PATH: $old_path
     } | merge $new_path)
@@ -64,20 +67,8 @@ export def --env activate [
             }
         }
 
-
-        let new_prompt = if (has-env 'PROMPT_COMMAND') {
-            if 'closure' in ($old_prompt_command | describe) {
-                {|| $'($virtual_prompt)(do $old_prompt_command)' }
-            } else {
-                {|| $'($virtual_prompt)($old_prompt_command)' }
-            }
-        } else {
-            {|| $'($virtual_prompt)' }
-        }
-
         $new_env | merge {
             CONDA_OLD_PROMPT_COMMAND: $old_prompt_command
-            PROMPT_COMMAND: $new_prompt
         }
     } else {
         $new_env | merge { CONDA_OLD_PROMPT_COMMAND: null }
@@ -174,3 +165,4 @@ def system-path [] {
 def has-env [name: string] {
     $name in $env
 }
+
