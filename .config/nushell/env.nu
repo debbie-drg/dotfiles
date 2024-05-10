@@ -97,6 +97,7 @@ alias grep = rg
 alias 'conda activate' = activate
 alias 'conda deactivate' = deactivate
 alias ocaml = bash -i -c "ocaml"
+alias dnf = dnf5
 
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/miniconda3/bin')
