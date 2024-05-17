@@ -103,9 +103,7 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/miniconda3/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/miniconda3/condabin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.cargo/bin')
-$env.PATH = ($env.PATH | split row (char esep) | prepend '~/.opam/default/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.elan/bin')
-$env.PATH = ($env.PATH | split row (char esep) | prepend '~/.cabal/bin')
-
+$env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/pypy/bin')
 
 # activate base
