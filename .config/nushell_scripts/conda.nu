@@ -83,7 +83,7 @@ export def --env deactivate [] {
     let path_name = if "PATH" in $env { "PATH" } else { "Path" }
     $env.$path_name = $env.CONDA_OLD_PATH
 
-    hide-env CONDA_PROMPT_MODIFIER
+    # hide-env CONDA_PROMPT_MODIFIER
     hide-env CONDA_PREFIX
     hide-env CONDA_SHLVL
     hide-env CONDA_DEFAULT_ENV

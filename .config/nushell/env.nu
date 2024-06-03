@@ -107,3 +107,6 @@ $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.elan/bin')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/pypy/bin')
 
 # activate base
+
+#zoxide
+zoxide init nushell | save -f ~/.zoxide.nu
